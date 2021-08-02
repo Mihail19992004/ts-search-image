@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {routes} from "./routes";
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {Auth} from "./components/Auth-Register/Auth";
+import {Main} from "./components/Main/Main";
+import {Register} from "./components/Auth-Register/Register";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // @ts-ignore
+    const route = routes(true)
+
+  return ( <div className="App">
+          <BrowserRouter>
+              {route}
+          </BrowserRouter>
+
+      </div>
   );
 }
 
